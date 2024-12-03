@@ -1754,11 +1754,6 @@ static int mov_write_packet(AVFormatContext *s, AVPacket *pkt)
     else
         samplesInChunk = 1;
 
-    if (samples_in_chunk < 1) {
-        av_log(s, AV_LOG_ERROR, "fatal error, input packet contains no samples\n");
-        return AVERROR_PATCHWELCOME;
-    }
-
     /* copy extradata if it exists */
     if (trk->vosLen == 0 && enc->extradata_size > 0) {
         trk->vosLen = enc->extradata_size;
